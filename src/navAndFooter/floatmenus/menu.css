@@ -1,0 +1,44 @@
+.pastryMenu,
+.iceCreamMenu {
+    width: 250px;
+    background-color: var(--secondaryColor);
+    position: fixed;
+    top: 12.2%;
+    border-radius: 0 0 10px 10px;
+}
+
+.pastryMenu,
+.iceCreamMenu {
+    left: -20%;
+    transition: left .7s;
+}
+
+.pastriesType,
+.iceCreamType,
+.viewPastries,
+.viewIceCream {
+    display: block;
+    width: 100%;
+    color: var(--dominantColor);
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: ease-in .7s;
+    text-decoration: none;
+}
+
+.pastriesType:hover,
+.iceCreamType:hover,
+.viewPastries:hover,
+.viewIceCream:hover {
+    background-color: var(--accentColor);
+    color: var(--secondaryColor) !important;
+}
+
+@media (max-width: 575px) {
+    .pastryMenu,
+    .iceCreamMenu {
+        display: none;
+}
+}

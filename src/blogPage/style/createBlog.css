@@ -1,0 +1,100 @@
+.addingBlog {
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.addingBlog h1 {
+    color: hsl(0, 0%, 100%);
+    font-size: 30px;
+}
+
+.formBlog {
+    width: 650px;
+    padding: 20px;
+    background-color: var(--secondaryColor);
+    margin: 3rem auto 0;
+    border-radius: 30px;
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.frmArr {
+    display: grid;
+    row-gap: 10px;
+}
+
+.frmArr label {
+    font-size: 16px;
+    color: var(--accentColor);
+}
+
+.frmArr input {
+    width: 350px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+    font-size: 16px;
+    font-family: 'Lobster', cursive;
+}
+
+.frmArr textarea {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Lobster', cursive;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.sbmFrm {
+    width: 100%;
+    text-align: center;
+}
+
+.sbmFrm button {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--accentColor);
+    color: var(--secondaryColor);
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+.err-msg {
+    color: red;
+    font-size: 12px;
+    transition: .7s;
+}
+
+@media (max-width: 575px) {
+    .addingBlog {
+        padding: 0 30px;
+    }
+
+    .formBlog {
+        width: 100%;
+    }
+
+    .frmArr input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 428px) {
+    .addingBlog {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 376px) {
+    .addingBlog {
+        padding: 0 10px;
+    }
+}

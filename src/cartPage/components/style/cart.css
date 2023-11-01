@@ -1,0 +1,16 @@
+.cartMain {
+    display: grid;
+    grid-template-columns: 9.5fr 3.5fr;
+    column-gap: 2rem;
+    margin-top: 4rem;
+    padding: 0 7rem;
+}
+
+@media (max-width: 575px) {
+    .cartMain {
+        grid-template-columns: 12fr;
+        row-gap: 2rem;
+        margin-top: 2rem 0 0;
+        padding: 0 10px;
+    }
+}

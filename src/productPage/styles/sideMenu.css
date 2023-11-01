@@ -1,0 +1,117 @@
+.sideMenuOption {
+    display: flex;
+    align-items: center;
+}
+
+.sideMenu {
+    width: 20vw;
+    height: 100vh;
+    background-color: var(--secondaryColor);
+}
+
+.searchBtn {
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid var(--dominantColor);
+}
+
+.searchBtn input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: 0 10px;
+    transition: transform .7s;
+}
+
+.searchBtn input:focus {
+    transform: scale(1.1);
+    background-color: var(--accentColor);
+    color: var(--secondaryColor);
+}
+
+.pastryProduct {
+    width: 100%;
+}
+
+.productHead {
+    width: 100%;
+    padding: 10px;
+    color: var(--dominantColor);
+}
+
+.productHead h3 {
+    font-size: 20px;
+}
+
+.pastryLinks a.active, .iceCreamLinks a.active {
+    background-color: var(--accentColor);
+    color: var(--secondaryColor);
+}
+
+.outlet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 100vh;
+}
+
+.sideMenuMsg {
+    width: 350px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: var(--secondaryColor);
+    color: var(--dominantColor);
+    /* display: none; */
+}
+
+.msgHead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--dominantColor);
+}
+
+.msgHead h3 {
+    font-size: 20px;
+}
+
+.msgHead img {
+    width: 30px;
+    height: 30px;
+}
+
+.msgPara {
+    width: 100%;
+}
+
+.msgPara p {
+    padding: 20px 30px;
+}
+
+@media (max-width: 575px) {
+    .sideMenu {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        width: 100vw;
+        overflow-y: scroll;
+        transition: .7s;
+    }
+
+    .sideMenu.active {
+        top: 0;
+    }
+
+    .searchBtn input:focus {
+        transform: scale(1);
+    }
+
+    .outlet {
+        width: 100vw;
+    }
+}

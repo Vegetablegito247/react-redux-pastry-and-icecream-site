@@ -1,0 +1,132 @@
+.mainBlogs,
+.addReview {
+    width: 100%;
+    margin-top: 4rem;
+    padding: 0 7rem;
+}
+
+.mainBlogs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.blogs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4.5fr 7.5fr;
+    column-gap: 10px;
+    padding: 20px;
+    background-color: var(--secondaryColor);
+    border-radius: 30px;
+}
+
+.imgEvent {
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+}
+
+.imgEvent img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.blogDesc {
+    width: 100%;
+    padding: 10px;
+    color: var(--dominantColor);
+}
+
+.blogDesc h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.blogDesc h3 {
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+
+.blogDesc p,
+.addReview p {
+    font-size: 16px;
+}
+
+.addReview {
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+}
+
+.addReview h1 {
+    font-size: 30px;
+    margin-bottom: 2rem;
+}
+
+.addReview button {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--accentColor);
+    color: var(--secondaryColor);
+    font-size: 16px;
+    font-family: 'Lobster', cursive;
+    margin-top: 10px;
+}
+
+@media (max-width: 575px) {
+    .mainBlogs,
+    .addReview {
+        padding: 0 30px;
+    }
+
+    .blogs {
+        grid-template-columns: 5fr 7fr;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .imgEvent {
+        width: 100%;
+        height: 300px;
+        border-radius: 20px;
+    }
+
+    .blogDesc h1 {
+        font-size: 25px;
+    }
+
+    .blogDesc h3 {
+        font-size: 16px;
+    }
+
+    .blogDesc p,
+    .addReview p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 428px) {
+    .mainBlogs,
+    .addReview {
+        padding: 0 20px;
+    }
+
+    .blogs {
+        grid-template-columns: 12fr;
+    }
+
+    .imgEvent {
+        width: 100%;
+        height: 270px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 376px) {
+    .mainBlogs {
+        padding: 0 10px;
+    }
+}

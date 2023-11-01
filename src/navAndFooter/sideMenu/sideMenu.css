@@ -1,0 +1,76 @@
+.sideMenuNav {
+    display: none;
+}
+
+@media (max-width: 575px) {
+    .sideMenuNav {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .burger, .closeSide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .burger {
+        font-size: 25px;
+        color: var(--dominantColor);
+        width: fit-content;
+    }
+
+    .sideBar {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--secondaryColor);
+        flex-direction: column;
+        row-gap: 10px;
+        padding-left: 1.5rem;
+        transition: .7s;
+    }
+
+    .sideBar.active {
+        top: 0;
+    }
+
+    .sideBar li {
+        list-style: none;
+        line-height: 40px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .closeSide {
+        width: 30px;
+        height: 30px !important;
+        border-radius: 10px;
+        background-color: var(--accentColor);
+        color: var(--secondaryColor);
+        margin: 10px 10px 0 auto;
+        cursor: pointer;
+    }
+    
+    .sideBar li a {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+        height: 100%;
+        color: var(--dominantColor);
+        text-decoration: none;
+        transition: linear border.7s;
+    }
+    
+    .sideBar li a.active {
+        color: var(--accentColor);
+    }
+}

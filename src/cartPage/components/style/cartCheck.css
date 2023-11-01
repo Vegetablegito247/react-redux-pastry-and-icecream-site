@@ -1,0 +1,45 @@
+.cartCheck {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--secondaryColor);
+    height: fit-content;
+    color: var(--dominantColor);
+}
+
+.checkHead {
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--dominantColor);
+}
+
+.checkHead h3 {
+    font-size: 20px;
+}
+
+.cartItems, .cartTotal {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.cartItems span, .cartTotal span {
+    font-size: 18px;
+}
+
+.cartCheckBtn {
+    border-top: 1px solid var(--dominantColor);
+    padding: 10px 0 0;
+    width: 100%;
+}
+
+.cartCheckBtn button {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--accentColor);
+    font-family: 'Lobster', cursive;
+    color: var(--secondaryColor);
+}
