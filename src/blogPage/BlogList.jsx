@@ -5,6 +5,7 @@ import Footer from '../navAndFooter/Footer';
 import './style/blog.css'
 import { useNavigate } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
+import blogs from '../data/data';
 
 function BlogList() {
     // scroll to top of page after each navigation
@@ -14,8 +15,6 @@ function BlogList() {
             smooth: 'easeInOutQuint',
         });
     }, []);
-
-    const { blogs, loading } = useFetch('http://localhost:8000/blogs');
 
     const navigate = useNavigate();
 
@@ -27,7 +26,7 @@ function BlogList() {
             <Navbar />
             <div className="mainBlogs">
                 {
-                    blogs && blogs.map((blog) => (
+                    blogs.map((blog) => (
                         <div key={blog.id} className="blogs">
                             <div className="imgEvent">
                                 <img src={blog.img} alt="" />
