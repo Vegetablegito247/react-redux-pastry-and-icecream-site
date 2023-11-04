@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LandingPage from './landingPage/LandingPage';
@@ -17,6 +17,12 @@ import VanillaIce from './productPage/iceCreamPage/VanillaIce';
 import CreateBlog from './blogPage/CreateBlog';
 import BlogList from './blogPage/BlogList';
 import Cart from './cartPage/Cart';
+import { useDispatch } from 'react-redux';
+import { resetCookie } from './appStore/products/iceCream/cookiesAndCreamIceSlice';
+import { resetChoco } from './appStore/products/iceCream/chocolateIceSlice';
+import { resetStraw } from './appStore/products/iceCream/strawberryIceSlice';
+import { resetVanilla } from './appStore/products/iceCream/vanillaIceSlice';
+import { resetMint } from './appStore/products/iceCream/mintChocolateChipIceSlice';
 
 function App() {
   //handling the menu bar
@@ -27,8 +33,18 @@ function App() {
     console.log(1);
   };
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetCookie());
+    dispatch(resetChoco());
+    dispatch(resetStraw());
+    dispatch(resetVanilla());
+    dispatch(resetMint());
+  }, [dispatch]);
+
   return (
-    <div className= 'App'>
+    <div className='App'>
       <Router>
         <Routes>
           <Route path='/' element={<LandingPage />} />

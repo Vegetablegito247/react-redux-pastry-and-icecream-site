@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GiCupcake, GiIceCreamCone } from 'react-icons/gi';
 import { BiNews } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';

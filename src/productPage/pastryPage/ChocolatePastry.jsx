@@ -1,10 +1,30 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { AiFillHome, AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai';
+import { addToCart } from '../../appStore/products/cart/cartSlice';
+import { toast } from 'react-toastify';
 
 function ChocolatePastry({ handleSideMenu }) {
     let chocolateProduct = useSelector((state) => state.chocolatePastry.chocolatePastries);
+
+    //adding to cart
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (item, quantity) => {
+        // Dispatch the addToCart action with item and quantity
+        dispatch(addToCart({ item, quantity }));
+        toast.success(`${item.name} has been added to cart`, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'dark',
+        });
+    };
 
     return (
         <div className='cheesePastry'>
@@ -43,9 +63,10 @@ function ChocolatePastry({ handleSideMenu }) {
                             <div className="itemDesc">
                                 <h3>{items.name}</h3>
                                 <p>{items.title}</p>
+                                <span>N{items.price}</span>
                             </div>
                             <div className="itemToCart">
-                                <button>Add to cart</button>
+                                <button onClick={() => handleAddToCart(items, 1)}>Add to cart</button>
                             </div>
                         </div>
                     ))

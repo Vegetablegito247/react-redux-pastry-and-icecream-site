@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function PastryAds() {
     let pastry1 = useSelector((state) => state.vanillaPastry.vanillaPastries);
@@ -45,7 +46,13 @@ function PastryAds() {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [pastry1, pastry2])
+    }, [pastry1, pastry2]);
+
+    const navigate = useNavigate();
+
+    const handleNavigation = () => {
+        navigate('/products/cheesePastry');
+    };
 
     return (
         <div className="pastryLand">
@@ -56,7 +63,7 @@ function PastryAds() {
                         <div key={index} className="pastries">
                             <img src="" alt="" />
                             <h3>{pastry.name}</h3>
-                            <button>view item</button>
+                            <button onClick={handleNavigation}>view item</button>
                         </div>
                     ))
                 }

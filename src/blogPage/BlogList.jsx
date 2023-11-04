@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import useFetch from './useFetch';
 import Navbar from '../navAndFooter/Navbar';
 import Footer from '../navAndFooter/Footer';
 import './style/blog.css'

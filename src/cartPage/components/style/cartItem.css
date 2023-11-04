@@ -11,6 +11,15 @@
     flex-direction: column;
 }
 
+.empCart {
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dominantColor);
+}
+
 .cartList {
     width: 100%;
     border-radius: 10px;
@@ -41,9 +50,14 @@
 }
 
 .cartInfo {
-    row-gap: 6px;
-    align-items: center;
+    row-gap: 4px;
     color: var(--dominantColor);
+    text-align: start;
+}
+
+.cartInfo span {
+    font-size: 12px;
+    margin-top: 4px;
 }
 
 .cartQuantity {
@@ -64,7 +78,7 @@
     color: var(--secondaryColor);
 }
 
-.delete span {
+.delete span, .empCart p {
     font-size: 18px;
 }
 
@@ -78,10 +92,12 @@
     align-items: center;
     justify-content: center;
     width: 30px;
-    height: 30px;
+    height: 30px !important;
     border-radius: 10px;
     color: var(--secondaryColor);
     background-color: var(--accentColor);
+    cursor: pointer;
+    user-select: none;
 }
 
 .minus span, .add span {

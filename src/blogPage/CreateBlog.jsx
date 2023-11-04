@@ -5,6 +5,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import './style/createBlog.css';
 import Navbar from '../navAndFooter/Navbar';
 import Footer from '../navAndFooter/Footer';
+import blogs from '../data/data';
 
 function CreateBlog() {
     // scroll to top of page after each navigation
@@ -14,8 +15,6 @@ function CreateBlog() {
             smooth: 'easeInOutQuint',
         });
     }, []);
-
-    const [pending, setPending] = useState(false);
 
     const [blogData, setBlogData] = useState(
         {
@@ -55,32 +54,34 @@ function CreateBlog() {
         return Object.keys(newErrors).length === 0;
     }
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setBlogData({
+                ...blogData,
+                img: URL.createObjectURL(file),
+            });
+        }
+    };
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const blog = blogData;
         if (validateForm()) {
-            fetch('http://localhost:8000/blogs', {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(blog)
-            })
-                .then(() => {
-                    toast.success('Your story has been added', {
-                        position: "top-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: 'dark',
-                    });
-                    navigate('/blogs');
-                    setPending(false);
-                })
+            blogs.push(blogData);
+            toast.success('Your story has been added', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            });
+            navigate('/blogs');
         }
     }
 
@@ -104,20 +105,22 @@ function CreateBlog() {
                         <input
                             type="text"
                             name='author'
+                            value={blogData.author}
                             onChange={handleChange}
                             placeholder='Your name or family name or nickname you bear'
                         />
-                        { errors.author && <p className='err-msg'>{errors.author}</p> }
+                        {errors.author && <p className='err-msg'>{errors.author}</p>}
                     </div>
                     <div className="frmArr">
                         <label>Title:</label>
                         <input
                             type="text"
                             name='title'
+                            value={blogData.title}
                             onChange={handleChange}
                             placeholder='Title of the event'
                         />
-                        { errors.title && <p className='err-msg'>{errors.title}</p> }
+                        {errors.title && <p className='err-msg'>{errors.title}</p>}
                     </div>
                     <div className="frmArr">
                         <label>Description:</label>
@@ -125,10 +128,11 @@ function CreateBlog() {
                             cols="30"
                             rows="5"
                             name='description'
+                            value={blogData.description}
                             onChange={handleChange}
                             placeholder='A short review or comment about our services to you'
                         ></textarea>
-                        { errors.description && <p className='err-msg'>{errors.description}</p> }
+                        {errors.description && <p className='err-msg'>{errors.description}</p>}
                     </div>
                     <div className="frmArr">
                         <label>Add a Image</label>
@@ -136,13 +140,12 @@ function CreateBlog() {
                             type="file"
                             name='img'
                             accept='image/*'
-                            onChange={handleChange}
+                            onChange={handleImageChange}
                         />
-                        { errors.img && <p className='err-msg'>{errors.img}</p> }
+                        {errors.img && <p className='err-msg'>{errors.img}</p>}
                     </div>
                     <div className="sbmFrm">
-                        {!pending && <button>Add Blog</button>}
-                        {pending && <button>...Adding Blog</button>}
+                        <button type='submit'>Add Blog</button>
                     </div>
                 </form>
             </div>

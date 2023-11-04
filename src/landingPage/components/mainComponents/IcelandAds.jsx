@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function IcelandAds() {
     let iceCream1 = useSelector((state) => state.cookieIceCream.cookiesAndCreamIcecream);
@@ -18,7 +19,13 @@ function IcelandAds() {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [iceCream1, iceCream2])
+    }, [iceCream1, iceCream2]);
+
+    const navigate = useNavigate();
+
+    const handleNavigation = () => {
+        navigate('/products/chocolateIce');
+    };
 
     return (
         <div className="iceLand">
@@ -27,9 +34,9 @@ function IcelandAds() {
                 {
                     iceCreamDisplay.map((ice, index) => (
                         <div key={index} className="ices">
-                            <img src="" alt="" />
+                            <img src={ice.img} alt="" />
                             <h3>{ice.name}</h3>
-                            <button>view item</button>
+                            <button onClick={handleNavigation}>view item</button>
                         </div>
                     ))
                 }

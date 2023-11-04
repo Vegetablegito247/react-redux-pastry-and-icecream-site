@@ -1,4 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import chocolateReducer from "./products/pastries/chocolateSlice";
 import vanillaReducer from "./products/pastries/vanillaSlice";
 import strawBerryReducer from "./products/pastries/strawBerrySlice";
@@ -11,22 +13,31 @@ import chocolateIceReducer from "./products/iceCream/chocolateIceSlice";
 import strawberryIceReducer from "./products/iceCream/strawberryIceSlice";
 
 import cartReducer from "./products/cart/cartSlice";
+import thunk from "redux-thunk";
 
-
-const store = configureStore({
-    reducer: {
-        chocolatePastry: chocolateReducer,
-        vanillaPastry: vanillaReducer,
-        strawberryPastry: strawBerryReducer,
-        fruitPastry: fruitReducer,
-        cheesePastry: cheeseReducer,
-        mintIceCream: mintChocolateChipIceReducer,
-        cookieIceCream: cookiesAndCreamIceReducer,
-        vanillaIceCream: vanillaIceReducer,
-        chocolateIceCream: chocolateIceReducer,
-        strawberryIceCream: strawberryIceReducer,
-        cart: cartReducer
-    },
+const persistConfig = {
+    key: 'root',
+    storage,
+}
+const rootReducer = combineReducers({
+    cart: cartReducer,
+    chocolatePastry: chocolateReducer,
+    vanillaPastry: vanillaReducer,
+    strawberryPastry: strawBerryReducer,
+    fruitPastry: fruitReducer,
+    cheesePastry: cheeseReducer,
+    mintIceCream: mintChocolateChipIceReducer,
+    cookieIceCream: cookiesAndCreamIceReducer,
+    vanillaIceCream: vanillaIceReducer,
+    chocolateIceCream: chocolateIceReducer,
+    strawberryIceCream: strawberryIceReducer,
 });
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const store = configureStore({
+    reducer: persistedReducer,
+    middleware: [thunk]
+});
+
+export const persistor = persistStore(store);

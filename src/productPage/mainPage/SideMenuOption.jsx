@@ -7,9 +7,6 @@ function SideMenuOption({ openMenu, handleSideMenu }) {
     return (
         <div className='sideMenuOption'>
             <div className={openMenu ? 'sideMenu active' : 'sideMenu'}>
-                <form className="searchBtn">
-                    <input type="search" name="" id="" />
-                </form>
                 <div className="productList">
                     <div className="pastryProduct">
                         <div className="productHead">

@@ -103,7 +103,11 @@
 
 .itemDesc p {
     font-size: 16px;
-    margin-top: 10px;
+    margin: 5px 0 10px;
+}
+
+.itemDesc span {
+    font-size: 14px;
 }
 
 .itemToCart {
