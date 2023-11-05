@@ -113,11 +113,8 @@ const cookiesAndCreamIceSlice = createSlice({
                 }
             }
         },
-        resetCookie: (state) => {
-            return initialState
-        }
     }
 })
 
 export default cookiesAndCreamIceSlice.reducer;
-export const { purchaseCookiesIceCream, resetCookie } = cookiesAndCreamIceSlice.actions;
+export const { purchaseCookiesIceCream } = cookiesAndCreamIceSlice.actions;

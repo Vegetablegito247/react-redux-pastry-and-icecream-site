@@ -35,7 +35,7 @@ function CartItem() {
                         <div key={index} className="cartList">
                             <div className="cartDetails">
                                 <div className="cartImg">
-                                    <img src="" alt="" />
+                                    <img src={cart.img} alt="" />
                                 </div>
                                 <div className="cartInfo">
                                     <h3>{cart.name}</h3>

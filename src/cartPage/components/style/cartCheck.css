@@ -43,3 +43,76 @@
     font-family: 'Lobster', cursive;
     color: var(--secondaryColor);
 }
+
+.emailCont.active {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(135, 135, 135, 0.437);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emailCont {
+    display: none;
+}
+
+.closeOrder {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accentColor);
+    color: var(--secondaryColor);
+    border-radius: 10px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.getEmail {
+    width: 300px;
+    height: fit-content;
+    padding: 20px;
+    background-color: var(--secondaryColor);
+    border-radius: 10px;
+    row-gap: 1.5rem;
+}
+
+.getEmail, .emailCtrl {
+    display: flex;
+    flex-direction: column;
+}
+
+.emailCtrl {
+    row-gap: 10px;
+}
+
+.emailCtrl input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    padding: 0 10px;
+    font-size: 14px;
+    font-family: 'Lobster', cursive;
+}
+
+.emailButton {
+    width: 100%;
+}
+
+.emailButton button {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--accentColor);
+    color: var(--secondaryColor);
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}

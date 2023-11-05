@@ -72,7 +72,7 @@ body::-webkit-scrollbar-thumb {
 .pastries {
     width: 100%;
     height: fit-content;
-    padding: 10px 40px;
+    padding: 20px;
     background-color: var(--secondaryColor);
     border-radius: 40px;
 }
@@ -80,7 +80,8 @@ body::-webkit-scrollbar-thumb {
 .ices img,
 .pastries img {
     width: 100%;
-    height: 330px;
+    height: 350px;
+    border-radius: 20px;
 }
 
 .ices h3,
@@ -182,7 +183,7 @@ body::-webkit-scrollbar-thumb {
 
     .ices img,
     .pastries img {
-        height: 230px;
+        height: 270px;
     }
 
     .offers {

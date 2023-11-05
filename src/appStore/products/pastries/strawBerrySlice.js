@@ -1,4 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
+import img1 from '../../productImg/pastry/strawberry/StrawberryShortcake.png';
+import img2 from '../../productImg/pastry/strawberry/StrawberryCheesecake.png';
+import img3 from '../../productImg/pastry/strawberry/StrawberryDanish.png';
+import img4 from '../../productImg/pastry/strawberry/StrawberryMacaron.png';
+import img5 from '../../productImg/pastry/strawberry/StrawberryTarts.png';
+import img6 from '../../productImg/pastry/strawberry/StrawberryMousseCake.png';
+import img7 from '../../productImg/pastry/strawberry/StrawberryCupcakes.png';
+import img8 from '../../productImg/pastry/strawberry/StrawberryEclairs.png';
+import img9 from '../../productImg/pastry/strawberry/StrawberryCinnamonRoll.png';
+import img10 from '../../productImg/pastry/strawberry/StrawberryCreamPuff.png';
+import img11 from '../../productImg/pastry/strawberry/StrawberryCroissant.png';
+import img12 from '../../productImg/pastry/strawberry/StrawberryTiramisu.png';
+import img13 from '../../productImg/pastry/strawberry/StrawberryMuffins.png';
+import img14 from '../../productImg/pastry/strawberry/StrawberryBreadPudding.png';
+import img15 from '../../productImg/pastry/strawberry/StrawberryChocolateTart.png';
+import img16 from '../../productImg/pastry/strawberry/StrawberryAlmondCake.png';
+import img17 from '../../productImg/pastry/strawberry/StrawberryCoconutMacaroon.png';
+import img18 from '../../productImg/pastry/strawberry/StrawberryLemonadeTart.png';
+import img19 from '../../productImg/pastry/strawberry/StrawberryPecanPie.png';
+import img20 from '../../productImg/pastry/strawberry/StrawberryOatmealCookies.png';
 
 const initialState = {
     strawberryPastries: [
@@ -8,6 +28,7 @@ const initialState = {
             title: 'Heavenly Strawberry Shortcake Delight',
             price: 5000,
             stock: 20,
+            img: img1
         },
         {
             id: 2,
@@ -15,6 +36,7 @@ const initialState = {
             title: 'Creamy Strawberry Cheesecake Indulgence',
             price: 6500,
             stock: 20,
+            img: img2
         },
         {
             id: 3,
@@ -22,6 +44,7 @@ const initialState = {
             title: 'Flaky Strawberry-Filled Danish Pastry',
             price: 3500,
             stock: 20,
+            img: img3
         },
         {
             id: 4,
@@ -29,6 +52,7 @@ const initialState = {
             title: 'Delicate Strawberry Macaroon Bliss',
             price: 4500,
             stock: 20,
+            img: img4
         },
         {
             id: 5,
@@ -36,6 +60,7 @@ const initialState = {
             title: 'Fresh Strawberry Tarts Perfection',
             price: 5500,
             stock: 20,
+            img: img5
         },
         {
             id: 6,
@@ -43,6 +68,7 @@ const initialState = {
             title: 'Strawberry Mousse Cake Sensation',
             price: 7000,
             stock: 20,
+            img: img6
         },
         {
             id: 7,
@@ -50,6 +76,7 @@ const initialState = {
             title: 'Bite-sized Strawberry Cupcake Joy',
             price: 3000,
             stock: 20,
+            img: img7
         },
         {
             id: 8,
@@ -57,6 +84,7 @@ const initialState = {
             title: 'Strawberry-Filled Eclair Delight',
             price: 4000,
             stock: 20,
+            img: img8
         },
         {
             id: 9,
@@ -64,6 +92,7 @@ const initialState = {
             title: 'Warm Strawberry Cinnamon Roll Comfort',
             price: 3200,
             stock: 20,
+            img: img9
         },
         {
             id: 10,
@@ -71,6 +100,7 @@ const initialState = {
             title: 'Creamy Strawberry Cream Puff Fantasy',
             price: 4800,
             stock: 20,
+            img: img10
         },
         {
             id: 11,
@@ -78,6 +108,7 @@ const initialState = {
             title: 'Flaky Strawberry Croissant Delight',
             price: 3700,
             stock: 20,
+            img: img11
         },
         {
             id: 12,
@@ -85,6 +116,7 @@ const initialState = {
             title: 'Strawberry Tiramisu Temptation',
             price: 6200,
             stock: 20,
+            img: img12
         },
         {
             id: 13,
@@ -92,6 +124,7 @@ const initialState = {
             title: 'Homemade Strawberry Muffin Joy',
             price: 2500,
             stock: 20,
+            img: img13
         },
         {
             id: 14,
@@ -99,6 +132,7 @@ const initialState = {
             title: 'Warm Strawberry Bread Pudding Comfort',
             price: 4200,
             stock: 20,
+            img: img14
         },
         {
             id: 15,
@@ -106,6 +140,7 @@ const initialState = {
             title: 'Strawberry Chocolate Tart Indulgence',
             price: 5500,
             stock: 20,
+            img: img15
         },
         {
             id: 16,
@@ -113,6 +148,7 @@ const initialState = {
             title: 'Almond-Infused Strawberry Cake Delight',
             price: 7000,
             stock: 20,
+            img: img16
         },
         {
             id: 17,
@@ -120,6 +156,7 @@ const initialState = {
             title: 'Coconut-Strawberry Macaroon Bliss',
             price: 4500,
             stock: 20,
+            img: img17
         },
         {
             id: 18,
@@ -127,6 +164,7 @@ const initialState = {
             title: 'Tangy Strawberry Lemonade Tart Joy',
             price: 5200,
             stock: 20,
+            img: img18
         },
         {
             id: 19,
@@ -134,6 +172,7 @@ const initialState = {
             title: 'Pecan-Strawberry Pie Perfection',
             price: 6800,
             stock: 20,
+            img: img19
         },
         {
             id: 20,
@@ -141,6 +180,7 @@ const initialState = {
             title: 'Chewy Strawberry Oatmeal Cookies Delight',
             price: 3000,
             stock: 20,
+            img: img20
         },
     ]
 }
@@ -162,9 +202,12 @@ const strawBerrySlice = createSlice({
                     console.log('Out of stock');
                 }
             }
+        },
+        resetStraw: (state) => {
+            return initialState
         }
     }
 })
 
 export default strawBerrySlice.reducer;
-export const { purchaseStrawberry } = strawBerrySlice.actions;
+export const { purchaseStrawberry, resetStraw } = strawBerrySlice.actions;

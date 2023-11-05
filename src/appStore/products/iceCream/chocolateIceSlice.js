@@ -112,12 +112,9 @@ const chocolateIceSlice = createSlice({
                     console.log('Out of stock');
                 }
             }
-        },
-        resetChoco: (state) => {
-            return initialState
         }
     }
 })
 
 export default chocolateIceSlice.reducer;
-export const { purchaseChocolateIceCream, resetChoco } = chocolateIceSlice.actions;
+export const { purchaseChocolateIceCream } = chocolateIceSlice.actions;

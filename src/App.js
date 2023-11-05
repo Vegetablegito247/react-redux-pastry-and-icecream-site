@@ -18,11 +18,10 @@ import CreateBlog from './blogPage/CreateBlog';
 import BlogList from './blogPage/BlogList';
 import Cart from './cartPage/Cart';
 import { useDispatch } from 'react-redux';
-import { resetCookie } from './appStore/products/iceCream/cookiesAndCreamIceSlice';
-import { resetChoco } from './appStore/products/iceCream/chocolateIceSlice';
-import { resetStraw } from './appStore/products/iceCream/strawberryIceSlice';
-import { resetVanilla } from './appStore/products/iceCream/vanillaIceSlice';
-import { resetMint } from './appStore/products/iceCream/mintChocolateChipIceSlice';
+import { resetCheese } from './appStore/products/pastries/cheeseSlice';
+import { resetStraw } from './appStore/products/pastries/strawBerrySlice';
+import { resetChoco } from './appStore/products/pastries/chocolateSlice';
+import { resetFruit } from './appStore/products/pastries/fruitSlice';
 
 function App() {
   //handling the menu bar
@@ -36,11 +35,10 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetCookie());
+    dispatch(resetCheese());
     dispatch(resetChoco());
+    dispatch(resetFruit());
     dispatch(resetStraw());
-    dispatch(resetVanilla());
-    dispatch(resetMint());
   }, [dispatch]);
 
   return (

@@ -59,7 +59,7 @@ function CheesePastry({ handleSideMenu }) {
                     cheeseProduct.map((items, index) => (
                         <div key={index} className="items">
                             <div className="itemImg">
-                                <img src="" alt="" />
+                                <img src={items.img} alt="" />
                             </div>
                             <div className="itemDesc">
                                 <h3>{items.name}</h3>

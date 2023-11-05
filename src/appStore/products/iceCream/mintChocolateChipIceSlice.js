@@ -112,11 +112,8 @@ const mintChocolateChipIceSlice = createSlice({
                 }
             }
         },
-        resetMint: (state) => {
-            return initialState
-        }
     }
 })
 
 export default mintChocolateChipIceSlice.reducer;
-export const { purchaseMintChocolateIceCream, resetMint } = mintChocolateChipIceSlice.actions;
+export const { purchaseMintChocolateIceCream } = mintChocolateChipIceSlice.actions;

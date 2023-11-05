@@ -16,9 +16,3 @@ body {
   --secondaryColor: hsl(37, 100%, 89%);
   --accentColor: hsl(356, 55%, 52%);
 }
-
-@media (max-width: 575px) {
-  .App.active {
-    overflow: hidden;
-  }
-}
