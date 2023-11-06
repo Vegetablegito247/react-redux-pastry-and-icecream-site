@@ -56,31 +56,20 @@ function PastryAds() {
     };
 
     //force load
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 5000)
-
-        return () => {
-            clearTimeout(timer)
-        }
-    }, [])
+    const [loading, setLoading] = useState(false);
 
     return (
         <div className="pastryLand">
             <h1>Checkout our mouth-watering Pastries</h1>
             <div className="disPastry">
-            {loading && <CardSkeleton card={2} />}
-                {
-                    pastryDisplay.map((pastry, index) => (
-                        <div key={index} className="pastries">
-                            <img src={pastry.img} alt="" />
-                            <h3>{pastry.name}</h3>
-                            <button onClick={handleNavigation}>view item</button>
-                        </div>
-                    ))
+                {loading && <CardSkeleton card={2} />}
+                {!loading && pastryDisplay.map((pastry, index) => (
+                    <div key={index} className="pastries">
+                        <img src={pastry.img} alt="" />
+                        <h3>{pastry.name}</h3>
+                        <button onClick={handleNavigation}>view item</button>
+                    </div>
+                ))
                 }
             </div>
         </div>

@@ -31,17 +31,7 @@ function IcelandAds() {
     };
 
     //force load
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 3000);
-
-        return () => {
-            clearTimeout(timer);
-        }
-    }, []);
+    const [loading, setLoading] = useState(false);
 
     return (
         <div className="iceLand">
