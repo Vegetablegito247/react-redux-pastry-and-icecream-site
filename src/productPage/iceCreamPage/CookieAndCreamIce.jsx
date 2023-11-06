@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { AiFillHome, AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai';
 import { addToCart } from '../../appStore/products/cart/cartSlice';
 import { toast } from 'react-toastify';
+import IceproductSkeleton from '../../skeletonLoader/IceproductSkeleton';
 
 function CookieAndCreamIce({ handleSideMenu }) {
     let cookiesAndCreamProduct = useSelector((state) => state.cookieIceCream.cookiesAndCreamIcecream);
@@ -25,6 +26,19 @@ function CookieAndCreamIce({ handleSideMenu }) {
             theme: 'dark',
         });
     };
+
+    //loading products
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+        }
+    }, []);
 
     return (
         <div className='cheesePastry'>
@@ -54,8 +68,8 @@ function CookieAndCreamIce({ handleSideMenu }) {
                 </ul>
             </div>
             <div className="itemProducts">
-                {
-                    cookiesAndCreamProduct.map((items, index) => (
+                {loading && <IceproductSkeleton card={10}/>}
+                {!loading && cookiesAndCreamProduct.map((items, index) => (
                         <div key={index} className="items">
                             <div className="itemImg">
                                 <img src={items.img} alt="" />

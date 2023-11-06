@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import CardSkeleton from '../../../skeletonLoader/CardSkeleton';
 
 function PastryAds() {
     let pastry1 = useSelector((state) => state.vanillaPastry.vanillaPastries);
@@ -54,14 +55,28 @@ function PastryAds() {
         navigate('/products/cheesePastry');
     };
 
+    //force load
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 5000)
+
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [])
+
     return (
         <div className="pastryLand">
             <h1>Checkout our mouth-watering Pastries</h1>
             <div className="disPastry">
+            {loading && <CardSkeleton card={2} />}
                 {
                     pastryDisplay.map((pastry, index) => (
                         <div key={index} className="pastries">
-                            <img src="" alt="" />
+                            <img src={pastry.img} alt="" />
                             <h3>{pastry.name}</h3>
                             <button onClick={handleNavigation}>view item</button>
                         </div>

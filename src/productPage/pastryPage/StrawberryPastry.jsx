@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { AiFillHome, AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai';
 import { addToCart } from '../../appStore/products/cart/cartSlice';
 import { toast } from 'react-toastify';
+import IceproductSkeleton from '../../skeletonLoader/IceproductSkeleton';
 
 function StrawberryPastry({ handleSideMenu }) {
     let strawberryProduct = useSelector((state) => state.strawberryPastry.strawberryPastries);
@@ -25,6 +26,19 @@ function StrawberryPastry({ handleSideMenu }) {
             theme: 'dark',
         });
     };
+
+    //loading products
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+        }
+    }, []);
 
     return (
         <div className='cheesePastry'>
@@ -54,22 +68,22 @@ function StrawberryPastry({ handleSideMenu }) {
                 </ul>
             </div>
             <div className="itemProducts">
-                {
-                    strawberryProduct.map((items, index) => (
-                        <div key={index} className="items">
-                            <div className="itemImg">
-                                <img src={items.img} alt="" />
-                            </div>
-                            <div className="itemDesc">
-                                <h3>{items.name}</h3>
-                                <p>{items.title}</p>
-                                <span>N{items.price}</span>
-                            </div>
-                            <div className="itemToCart">
-                                <button onClick={() => handleAddToCart(items, 1)}>Add to cart</button>
-                            </div>
+                {loading && <IceproductSkeleton card={20} />}
+                {!loading && strawberryProduct.map((items, index) => (
+                    <div key={index} className="items">
+                        <div className="itemImg">
+                            <img src={items.img} alt="" />
                         </div>
-                    ))
+                        <div className="itemDesc">
+                            <h3>{items.name}</h3>
+                            <p>{items.title}</p>
+                            <span>N{items.price}</span>
+                        </div>
+                        <div className="itemToCart">
+                            <button onClick={() => handleAddToCart(items, 1)}>Add to cart</button>
+                        </div>
+                    </div>
+                ))
                 }
             </div>
         </div>

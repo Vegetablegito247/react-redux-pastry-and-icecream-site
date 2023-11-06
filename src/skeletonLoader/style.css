@@ -1,0 +1,35 @@
+.card-skeleton {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--secondaryColor);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.iceSkeleton {
+    width: 100%;
+    background-color: var(--secondaryColor);
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.imageSkel, .imgPrd {
+    width: 100%;
+}
+
+.headPrd {
+    margin-top: 1rem;
+}
+
+.textPrd, .pricePrd {
+    margin-top: 10px;
+}
+
+.btnPrd {
+    margin-top: 2rem;
+}

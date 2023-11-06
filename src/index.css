@@ -13,6 +13,6 @@ body {
 
 :root {
   --dominantColor: hsl(19, 29%, 28%);
-  --secondaryColor: hsl(37, 100%, 89%);
+  --secondaryColor: hsl(36, 100%, 89%);
   --accentColor: hsl(356, 55%, 52%);
 }

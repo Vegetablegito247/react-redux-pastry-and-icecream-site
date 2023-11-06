@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import CardSkeleton from '../../../skeletonLoader/CardSkeleton';
 
 function IcelandAds() {
+    //Getting the random products
     let iceCream1 = useSelector((state) => state.cookieIceCream.cookiesAndCreamIcecream);
     let iceCream2 = useSelector((state) => state.chocolateIceCream.chocolateIceCream);
 
@@ -21,24 +23,38 @@ function IcelandAds() {
         return () => clearInterval(interval);
     }, [iceCream1, iceCream2]);
 
+    //navigating
     const navigate = useNavigate();
 
     const handleNavigation = () => {
         navigate('/products/chocolateIce');
     };
 
+    //force load
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+        }
+    }, []);
+
     return (
         <div className="iceLand">
             <h1>Checkout our delicious Ice-creams</h1>
             <div className="disIceCream">
-                {
-                    iceCreamDisplay.map((ice, index) => (
-                        <div key={index} className="ices">
-                            <img src={ice.img} alt="" />
-                            <h3>{ice.name}</h3>
-                            <button onClick={handleNavigation}>view item</button>
-                        </div>
-                    ))
+                {loading && <CardSkeleton card={2} />}
+                {!loading && iceCreamDisplay.map((ice, index) => (
+                    <div key={index} className="ices">
+                        <img src={ice.img} alt="" />
+                        <h3>{ice.name}</h3>
+                        <button onClick={handleNavigation}>view item</button>
+                    </div>
+                ))
                 }
             </div>
         </div>

@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 import LandingPage from './landingPage/LandingPage';
 import SideMenuOption from './productPage/mainPage/SideMenuOption';
 import CheesePastry from './productPage/pastryPage/CheesePastry';
@@ -17,11 +19,6 @@ import VanillaIce from './productPage/iceCreamPage/VanillaIce';
 import CreateBlog from './blogPage/CreateBlog';
 import BlogList from './blogPage/BlogList';
 import Cart from './cartPage/Cart';
-import { useDispatch } from 'react-redux';
-import { resetCheese } from './appStore/products/pastries/cheeseSlice';
-import { resetStraw } from './appStore/products/pastries/strawBerrySlice';
-import { resetChoco } from './appStore/products/pastries/chocolateSlice';
-import { resetFruit } from './appStore/products/pastries/fruitSlice';
 
 function App() {
   //handling the menu bar
@@ -32,37 +29,30 @@ function App() {
     console.log(1);
   };
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(resetCheese());
-    dispatch(resetChoco());
-    dispatch(resetFruit());
-    dispatch(resetStraw());
-  }, [dispatch]);
-
   return (
     <div className='App'>
-      <Router>
-        <Routes>
-          <Route path='/' element={<LandingPage />} />
-          <Route path='products' element={<SideMenuOption openMenu={openMenu} handleSideMenu={handleSideMenu} />}>
-            <Route path='cheesePastry' element={<CheesePastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='chocolatePastry' element={<ChocolatePastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='fruitPastry' element={<FruitPastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='strawberryPastry' element={<StrawberryPastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='vanillaPastry' element={<VanillaPastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='chocolateIce' element={<ChocolateIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='cookieIce' element={<CookieAndCreamIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='mintIce' element={<MintChocolateIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='strawberryIce' element={<StrawberryIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-            <Route path='vanillaIce' element={<VanillaIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
-          </Route>
-          <Route path='blogs' element={<BlogList />} />
-          <Route path='createBlog' element={<CreateBlog />} />
-          <Route path='cart' element={<Cart />} />
-        </Routes>
-      </Router>
+      <SkeletonTheme baseColor="#c74049" highlightColor='#ffffff'>
+        <Router>
+          <Routes>
+            <Route path='/' element={<LandingPage />} />
+            <Route path='products' element={<SideMenuOption openMenu={openMenu} handleSideMenu={handleSideMenu} />}>
+              <Route path='cheesePastry' element={<CheesePastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='chocolatePastry' element={<ChocolatePastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='fruitPastry' element={<FruitPastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='strawberryPastry' element={<StrawberryPastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='vanillaPastry' element={<VanillaPastry openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='chocolateIce' element={<ChocolateIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='cookieIce' element={<CookieAndCreamIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='mintIce' element={<MintChocolateIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='strawberryIce' element={<StrawberryIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+              <Route path='vanillaIce' element={<VanillaIce openMenu={openMenu} handleSideMenu={handleSideMenu} />} />
+            </Route>
+            <Route path='blogs' element={<BlogList />} />
+            <Route path='createBlog' element={<CreateBlog />} />
+            <Route path='cart' element={<Cart />} />
+          </Routes>
+        </Router>
+      </SkeletonTheme>
       <ToastContainer />
     </div>
   );
