@@ -113,8 +113,11 @@ const vanillaIceSlice = createSlice({
                 }
             }
         },
+        resetVanIce: (state) => {
+            return initialState
+        }
     }
 })
 
 export default vanillaIceSlice.reducer;
-export const { purchaseVanillaIceCream } = vanillaIceSlice.actions;
+export const { purchaseVanillaIceCream, resetVanIce } = vanillaIceSlice.actions;

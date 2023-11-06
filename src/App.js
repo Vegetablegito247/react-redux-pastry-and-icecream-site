@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { SkeletonTheme } from 'react-loading-skeleton';
@@ -19,6 +19,17 @@ import VanillaIce from './productPage/iceCreamPage/VanillaIce';
 import CreateBlog from './blogPage/CreateBlog';
 import BlogList from './blogPage/BlogList';
 import Cart from './cartPage/Cart';
+import { useDispatch } from 'react-redux';
+import { resetMintIce } from './appStore/products/iceCream/mintChocolateChipIceSlice';
+import { resetStrawIce } from './appStore/products/iceCream/strawberryIceSlice';
+import { resetVanIce } from './appStore/products/iceCream/vanillaIceSlice';
+import { resetCookIce } from './appStore/products/iceCream/cookiesAndCreamIceSlice';
+import { resetChoIce } from './appStore/products/iceCream/chocolateIceSlice';
+import { resetCheese } from './appStore/products/pastries/cheeseSlice';
+import { resetChoco } from './appStore/products/pastries/chocolateSlice';
+import { resetFruit } from './appStore/products/pastries/fruitSlice';
+import { resetStraw } from './appStore/products/pastries/strawBerrySlice';
+import { resetVanilla } from './appStore/products/pastries/vanillaSlice';
 
 function App() {
   //handling the menu bar
@@ -28,6 +39,21 @@ function App() {
     setOpenMenu(!openMenu);
     console.log(1);
   };
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(resetMintIce());
+    dispatch(resetStrawIce());
+    dispatch(resetVanIce());
+    dispatch(resetCookIce());
+    dispatch(resetChoIce());
+    dispatch(resetCheese());
+    dispatch(resetChoco());
+    dispatch(resetFruit());
+    dispatch(resetStraw());
+    dispatch(resetVanilla());
+  }, [])
 
   return (
     <div className='App'>

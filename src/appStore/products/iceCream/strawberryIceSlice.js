@@ -113,8 +113,11 @@ const strawberryIceSlice = createSlice({
                 }
             }
         },
+        resetStrawIce: (state) => {
+            return initialState
+        }
     }
 })
 
 export default strawberryIceSlice.reducer;
-export const { purchaseStrawberryIceCream } = strawberryIceSlice.actions
+export const { purchaseStrawberryIceCream, resetStrawIce } = strawberryIceSlice.actions
