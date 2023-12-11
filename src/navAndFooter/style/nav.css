@@ -28,7 +28,7 @@ nav {
     height: 100%;
     color: var(--dominantColor);
     text-decoration: none;
-    transition: linear border.7s;
+    transition: linear border .7s;
 }
 
 .navUl li a.active {
